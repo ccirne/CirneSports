@@ -16,7 +16,7 @@ namespace CirneSports.LojaVirtual.Web
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Produtos", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Vitrine", action = "ListaProdutos", id = UrlParameter.Optional }
             );
         }
     }
