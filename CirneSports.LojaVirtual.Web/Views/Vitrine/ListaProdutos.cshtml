@@ -8,4 +8,4 @@
     @Html.Partial("ProdutoDetalhes", p)
 }
 
-<div class="btn-group pull-right">@Html.PageLinks(Model.Paginacao, x => Url.Action("ListaProdutos", new { pagina = x }))</div>
+<div class="btn-group pull-right">@Html.PageLinks(Model.Paginacao, x => Url.Action("ListaProdutos", new { categoria = Model.CategoriaAtual, pagina = x}))</div>

@@ -7,6 +7,9 @@
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
+    
+
 </head>
 <body>
 
@@ -19,18 +22,18 @@
 
     <div class="row panel">
 
-        <div id="categorias" class="col-xs-3">
-            Minhas Categorias
+        <div id="Categorias" class="col-xs-3">
+            @Html.Action("Menu", "Categoria")
         </div>
 
-        <div id="categorias" class="col-xs-8">
+        <div id="produtos" class="col-xs-8">
             @RenderBody()
         </div>
 
     </div>
 
 
-
+    @RenderSection("scripts", required: false)
 
 </body>
 </html>
