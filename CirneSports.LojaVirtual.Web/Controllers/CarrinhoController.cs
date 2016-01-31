@@ -59,5 +59,11 @@ namespace CirneSports.LojaVirtual.Web.Controllers
                 ReturnUrl = returnurl
             });
         }
+
+        public PartialViewResult Resumo()
+        {
+            Carrinho carrinho = ObterCarrinho();
+            return PartialView(carrinho);
+        }
     }
 }
