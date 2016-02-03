@@ -27,6 +27,10 @@ namespace CirneSports.LojaVirtual.Dominio.Entidade
         [Display(Name = "Bairro:")]
         public string Bairro { get; set; }
 
+        [Required(ErrorMessage = "Informe seu estado")]
+        [Display(Name = "Estado:")]
+        public string Estado { get; set; }
+
         [Required(ErrorMessage = "Informe seu e-mail")]
         [Display(Name = "E-mail:")]
         [EmailAddress(ErrorMessage = "E-mail inválido")]
