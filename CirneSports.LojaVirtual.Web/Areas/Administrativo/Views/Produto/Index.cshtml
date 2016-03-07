@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CirneSports.LojaVirtual.Dominio.Entidade.Produto>
+
+@{
+    ViewBag.Title = "Administrativo - Produtos";
+    Layout = "~/Areas/Administrativo/Views/Shared/_AdministrativoLayout.cshtml";
+}
+
+<div class="alert alert-success" id="mensagem"></div>
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+        <h3>CirneSports Loja Virtual - Administrativo - Produtos</h3>
+    </div>
+
+    <div class="panel-body">
+
+        @Html.ActionLink("Novo Porduto", "NovoProduto", "Produto", new { @class = "btn btn-default" })
+
+        <table class="table table-striped table-condensed table-bordered">
+
+            <thead>
+
+                <tr>
+                    <th class="text-right">#Id</th>
+                    <th>Nome</th>
+                    <th class="text-right">Preço</th>
+                    <th class="text-center">Excluir</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr id="row-1">
+
+                    <th class="text-right">
+
+                    </th>
+
+                </tr>
+
+            </tbody>
+           
+
+        </table>
+
+
+    </div>
+
+</div>
