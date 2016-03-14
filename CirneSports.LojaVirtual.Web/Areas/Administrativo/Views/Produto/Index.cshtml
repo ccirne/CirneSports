@@ -22,7 +22,7 @@
             <thead>
 
                 <tr>
-                    <th class="text-right">#Id</th>
+                    <th class="text-right">Id</th>
                     <th>Nome</th>
                     <th class="text-right">Preço</th>
                     <th class="text-center">Excluir</th>
@@ -32,14 +32,27 @@
 
             <tbody>
 
-                <tr id="row-1">
-
-                    <th class="text-right">
-
-                    </th>
-
-                </tr>
-
+                @foreach(var item in Model)
+                { 
+                    <tr id="row-@item.ProdutoId">
+                        <th class="text-right">
+                            @item.ProdutoId
+                        </th>
+                        <th>
+                            @Html.ActionLink(item.Nome, "Alterar", new {item.ProdutoId })
+                        </th>
+                        <th class="text-right">
+                            @item.Preco.ToString("c")
+                        </th>
+                        <th class="text-center">
+                             @using (Html.BeginForm("Excluir","Produto"))
+                             {
+                                @Html.Hidden("ProdutoId",item.ProdutoId)
+                                <input type="submit" class="btn btn-default btn-xs" value="Excluir"/>
+                             }
+                        </th>
+                    </tr>
+                }
             </tbody>
            
 
