@@ -1,17 +1,17 @@
 ﻿@model CirneSports.LojaVirtual.Dominio.Entidade.Produto
 
 @{
-    ViewBag.Title = "Alterar " + @Model.Nome;
+    ViewBag.Title = @Model.Nome;
     Layout = "~/Areas/Administrativo/Views/Shared/_AdministrativoLayout.cshtml";
 }
 
 <div class="panel">
 
     <div class="panel-heading">
-        <h3>Alterar produto: @Model.Nome</h3>
+        <h3>@Model.Nome</h3>
     </div>
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Alterar","Produto"))
     {
         <div class="panel-body">
 
@@ -34,6 +34,8 @@
                         {
                             @Html.TextBox(property.PropertyName, null, new {@class = "form-control"})
                         }
+
+                        @Html.ValidationMessage(property.PropertyName)
 
                     </div>
                 }
