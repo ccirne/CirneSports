@@ -1,13 +1,13 @@
 ﻿using CirneSports.LojaVirtual.Dominio.Entidade;
 using CirneSports.LojaVirtual.Dominio.Repositorio;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CirneSports.LojaVirtual.Web.Areas.Administrativo.Controllers
 {
+
+    [Authorize]
+
     public class ProdutoController : Controller
     {
 
@@ -49,19 +49,40 @@ namespace CirneSports.LojaVirtual.Web.Areas.Administrativo.Controllers
             return View("Alterar", new Produto());
         }
 
+        //[HttpPost]
+        //public ActionResult Excluir(int produtoId)
+        //{
+        //    _repositorio = new ProdutosRepositorio();
+
+        //    Produto prod = _repositorio.Excluir(produtoId);
+
+        //    if (prod != null)
+        //    {
+        //        TempData["mensagem"] = string.Format("{0} excluído com sucesso!", prod.Nome);
+        //    }
+
+        //    return RedirectToAction("Index");
+        //}
+
+
         [HttpPost]
-        public ActionResult Excluir(int produtoId)
+        public JsonResult Excluir(int produtoId)
         {
+            //System.Threading.Thread.Sleep(TimeSpan.FromSeconds(5));
+
+            string mensagem = string.Empty;
+
             _repositorio = new ProdutosRepositorio();
 
             Produto prod = _repositorio.Excluir(produtoId);
 
             if (prod != null)
             {
-                TempData["mensagem"] = string.Format("{0} excluído com sucesso!", prod.Nome);
+                mensagem = string.Format("{0} excluído com sucesso!", prod.Nome);
             }
 
-            return RedirectToAction("Index");
+            return Json(mensagem, JsonRequestBehavior.AllowGet);
         }
+
     }
 }
