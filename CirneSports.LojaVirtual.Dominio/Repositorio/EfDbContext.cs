@@ -8,11 +8,14 @@ namespace CirneSports.LojaVirtual.Dominio.Repositorio
     {
         public DbSet<Produto> Produtos { get; set; }
 
+        public DbSet<Administrador> Administradores { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {            
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Entity<Produto>().ToTable("Produtos");
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Administrador>().ToTable("Administradores");
+            //base.OnModelCreating(modelBuilder);
         }
     }
 }
