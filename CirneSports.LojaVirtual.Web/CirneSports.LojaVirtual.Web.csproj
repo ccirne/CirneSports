@@ -96,6 +96,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Image\login-avatar.png" />
     <Content Include="Image\Logo.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -156,6 +157,7 @@
     <Content Include="Views\Carrinho\FecharPedido.cshtml" />
     <Content Include="Views\Carrinho\PedidoConcluido.cshtml" />
     <Content Include="Scripts\JQuey.Fixes.js" />
+    <Content Include="Views\Autenticacao\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -166,7 +168,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administrativo\Models\" />
-    <Folder Include="Views\Autenticacao\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CirneSports.LojaVirtual.Dominio\CirneSports.LojaVirtual.Dominio.csproj">
