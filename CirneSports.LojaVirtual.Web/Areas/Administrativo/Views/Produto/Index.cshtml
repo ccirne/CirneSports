@@ -24,7 +24,7 @@
                 <thead>
 
                 <tr>
-                    <th class="text-right">#Id</th>
+                    <th class="text-right">Id</th>
                     <th>Nome</th>
                     <th class="text-right">Preço</th>
                     <th class="text-center">Excluir</th>
@@ -38,7 +38,7 @@
                 {
                     <tr id="row-@item.ProdutoId">
                         <th class="text-right">
-                           # @item.ProdutoId
+                           @item.ProdutoId
                         </th>
                         <th>
                             @Html.ActionLink(item.Nome, "Alterar", new {item.ProdutoId})

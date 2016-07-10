@@ -2,6 +2,7 @@
 using CirneSports.LojaVirtual.Dominio.Repositorio;
 using System.Linq;
 using System.Web.Mvc;
+using System.Web;
 
 namespace CirneSports.LojaVirtual.Web.Areas.Administrativo.Controllers
 {
@@ -30,7 +31,7 @@ namespace CirneSports.LojaVirtual.Web.Areas.Administrativo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Alterar(Produto produto)
+        public ActionResult Alterar(Produto produto, HttpPostedFileBase image = null)
         {
             if (ModelState.IsValid)
             {
