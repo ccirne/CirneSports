@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using CirneSports.LojaVirtual.Dominio.Repositorio;
+using CirneSports.LojaVirtual.Dominio.Entidade;
 using CirneSports.LojaVirtual.Web.Models;
 
 namespace CirneSports.LojaVirtual.Web.Controllers
@@ -35,6 +36,20 @@ namespace CirneSports.LojaVirtual.Web.Controllers
             };
 
             return View(model);
+        }
+
+        public FileContentResult ObterImagem(int produtoId)
+        {
+            _repositorio = new ProdutosRepositorio();
+            Produto prod = _repositorio.Produtos
+                .FirstOrDefault(p => p.ProdutoId == produtoId);
+
+            if (prod != null)
+            {
+                return File(prod.Imagem, prod.ImagemMimeType);
+            }
+
+            return null;
         }
     }
 }
