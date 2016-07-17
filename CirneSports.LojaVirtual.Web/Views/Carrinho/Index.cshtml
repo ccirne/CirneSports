@@ -55,8 +55,10 @@ ViewBag.Title = "Cirne Sports: seu carrinho";
     <a class="btn btn-primary" href="@Model.ReturnUrl">
         Continuar Comprando
     </a>
-
-    @Html.ActionLink("Fechar o Pedido","FecharPedido","Carrinho",new {@class="btn btn-primary"})
+    @if(@Model.Carrinho.ItensCarrinho.Count() > 0)
+    { 
+        @Html.ActionLink("Fechar o Pedido","FecharPedido","Carrinho",new {@class="btn btn-primary"})
+    }
 </div>
 
 
