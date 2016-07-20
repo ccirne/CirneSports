@@ -15,20 +15,32 @@ ViewBag.Title = "Cirne Sports: seu carrinho";
 <table id="carrinhoTable" class="table">
     <thead>
     <tr>
-        <th>Quantidade</th>
         <th>Produto</th>
-        <th class="text-right">Preço</th>
-        <th class="text-right">Subtotal</th>
+        <th class="text-left">Preço</th>
+        <th>Quantidade</th>        
+        <th class="text-left">Subtotal</th>
     </tr>
     </thead>
     <tbody>
     @foreach (var item in Model.Carrinho.ItensCarrinho)
     {
         <tr>
-            <td class="text-center">@item.Quantidade</td>
-            <td class="text-center">@item.Produto.Nome</td>
-            <td class="text-right">@item.Produto.Preco.ToString("c")</td>
-            <td class="text-right">@((item.Quantidade*item.Produto.Preco).ToString("c"))</td>
+            @*<td class="text-center">@item.Quantidade</td>*@
+
+            <td class="text-left">@item.Produto.Nome</td>
+            <td class="text-left">@item.Produto.Preco.ToString("c")</td>
+            
+            <td class="text-left">
+                @using (Html.BeginForm("Adicionar", "Carrinho"))
+                {
+                    @Html.Hidden("ProdutoId", item.Produto.ProdutoId)
+                    @Html.HiddenFor(x => x.ReturnUrl)
+                    @Html.TextBox("quantidade", item.Quantidade, new { @class = "quantidade text-left", @Type = "number", min = "1", max = "10" })
+                    <input class="btn btn-sm btn-danger" type="submit" value="Atualizar" />
+                }
+            </td>
+
+            <td class="text-left">@((item.Quantidade * item.Produto.Preco).ToString("c"))</td>
 
             <td>
                 @using (Html.BeginForm("Remover", "Carrinho"))
@@ -44,7 +56,7 @@ ViewBag.Title = "Cirne Sports: seu carrinho";
     <tfoot>
     <tr>
         <td colspan="3" class="text-right">Total:</td>
-        <td class="text-right">
+        <td class="text-left">
             @Model.Carrinho.ObterValorTotal().ToString("c")
         </td>
     </tr>

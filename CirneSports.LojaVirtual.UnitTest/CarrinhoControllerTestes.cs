@@ -36,7 +36,7 @@ namespace CirneSports.LojaVirtual.UnitTest
             CarrinhoController controller = new CarrinhoController();
 
             //Act
-            controller.Adicionar(carrinho, 2, "");
+            controller.Adicionar(carrinho, 2, 1,"");
 
             //Assert
             Assert.AreEqual(carrinho.ItensCarrinho.Count(), 2);
@@ -53,7 +53,7 @@ namespace CirneSports.LojaVirtual.UnitTest
             CarrinhoController controller = new CarrinhoController();
 
             //Act
-            RedirectToRouteResult result = controller.Adicionar(carrinho, 2, "minhaUrl");
+            RedirectToRouteResult result = controller.Adicionar(carrinho, 2, 1,"minhaUrl");
 
             //Assert
             Assert.AreEqual(result.RouteValues["action"], "Index");
