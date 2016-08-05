@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using CirneSports.LojaVirtual.Dominio.Entidade;
 
 namespace CirneSports.LojaVirtual.Dominio.Repositorio
@@ -10,6 +11,11 @@ namespace CirneSports.LojaVirtual.Dominio.Repositorio
         public IEnumerable<Produto> Produtos
         {
             get { return _context.Produtos; }
+        }
+
+        public Produto ObterProduto(int id)
+        {
+            return _context.Produtos.Single(p => p.ProdutoId == id);
         }
 
         //Salvar produto - Alterar produto
