@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CirneSports.LojaVirtual.Web
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CirneSports.LojaVirtual.UnitTest", "CirneSports.LojaVirtual.UnitTest\CirneSports.LojaVirtual.UnitTest.csproj", "{853C8B16-47E3-4651-8925-0D42CF7CA06E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CirneSports.LojaVirtual.Web.V2", "CirneSports.LojaVirtual.Web.V2\CirneSports.LojaVirtual.Web.V2.csproj", "{7CE4B7A4-1C72-407D-9A0C-D95E094F22C1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{853C8B16-47E3-4651-8925-0D42CF7CA06E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{853C8B16-47E3-4651-8925-0D42CF7CA06E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{853C8B16-47E3-4651-8925-0D42CF7CA06E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CE4B7A4-1C72-407D-9A0C-D95E094F22C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CE4B7A4-1C72-407D-9A0C-D95E094F22C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CE4B7A4-1C72-407D-9A0C-D95E094F22C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CE4B7A4-1C72-407D-9A0C-D95E094F22C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
