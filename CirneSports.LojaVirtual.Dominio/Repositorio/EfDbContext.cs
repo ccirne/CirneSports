@@ -1,6 +1,7 @@
 ﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using CirneSports.LojaVirtual.Dominio.Entidade;
+using CirneSports.LojaVirtual.Dominio.Entidade.Vitrine;
 
 namespace CirneSports.LojaVirtual.Dominio.Repositorio
 {
@@ -11,6 +12,8 @@ namespace CirneSports.LojaVirtual.Dominio.Repositorio
         public DbSet<Administrador> Administradores { get; set; }
 
         public DbSet<Categoria> Categorias { get; set; }
+
+        public DbSet<MarcaVitrine> MarcaVitrine { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {            

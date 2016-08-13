@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CirneSports.LojaVirtual.Dominio.Entidade;
+using CirneSports.LojaVirtual.Dominio.Entidade.Vitrine;
 
 namespace CirneSports.LojaVirtual.Dominio.Repositorio
 {
@@ -14,6 +15,11 @@ namespace CirneSports.LojaVirtual.Dominio.Repositorio
         public IEnumerable<Categoria> ObterCategorias()
         {
             return _context.Categorias.OrderBy(c => c.CategoriaDescricao);
+        }
+
+        public IEnumerable<MarcaVitrine> ObterMarcas()
+        {
+            return _context.MarcaVitrine.OrderBy(m => m.MarcaDescricao);
         }
     }
 }
