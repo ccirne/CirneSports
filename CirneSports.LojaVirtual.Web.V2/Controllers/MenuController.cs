@@ -47,5 +47,59 @@ namespace CirneSports.LojaVirtual.Web.V2.Controllers
 
             return Json(marcas, JsonRequestBehavior.AllowGet);
         }
+
+        [OutputCache(Duration = 3600, Location = OutputCacheLocation.Server, VaryByParam = "none")]
+        public JsonResult ObterClubesNacionais()
+        {
+            _repositorio = new MenuRepositorio();
+
+            var listaClubesNacionais = _repositorio.ObterClubesNacionais();
+
+            var clubesNacionais = from n in listaClubesNacionais
+                         select new
+                         {
+                             n.LinhaDescricao,
+                             LinhaDescricaoSeo = n.LinhaDescricao.ToSeoUrl(),
+                             n.LinhaCodigo
+                         };
+
+            return Json(clubesNacionais, JsonRequestBehavior.AllowGet);
+        }
+
+        [OutputCache(Duration = 3600, Location = OutputCacheLocation.Server, VaryByParam = "none")]
+        public JsonResult ObterClubesInternacionais()
+        {
+            _repositorio = new MenuRepositorio();
+
+            var listaClubesInternacionais = _repositorio.ObterClubesInternacionais();
+
+            var clubesInternacionais = from i in listaClubesInternacionais
+                                  select new
+                                  {
+                                      i.LinhaDescricao,
+                                      LinhaDescricaoSeo = i.LinhaDescricao.ToSeoUrl(),
+                                      i.LinhaCodigo
+                                  };
+
+            return Json(clubesInternacionais, JsonRequestBehavior.AllowGet);
+        }
+
+        [OutputCache(Duration = 3600, Location = OutputCacheLocation.Server, VaryByParam = "none")]
+        public JsonResult ObterSelecoes()
+        {
+            _repositorio = new MenuRepositorio();
+
+            var listaSelecoes = _repositorio.ObterSelecoes();
+
+            var selecoes = from s in listaSelecoes
+                                       select new
+                                       {
+                                           s.LinhaDescricao,
+                                           LinhaDescricaoSeo = s.LinhaDescricao.ToSeoUrl(),
+                                           s.LinhaCodigo
+                                       };
+
+            return Json(selecoes, JsonRequestBehavior.AllowGet);
+        }
     }
 }

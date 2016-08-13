@@ -6,11 +6,14 @@ $(function () {
 
 app.inicializar = function () {
     $('#main-menu').smartmenus();
-    app.obteresportes();
-    app.obtermarcas();
+    app.ObterEsportes();
+    app.ObterMarcas();
+    app.ObterClubesNacionais();
+    app.ObterClubesInternacionais();
+    app.ObterSelecoes();
 }
 
-app.obteresportes = function () {
+app.ObterEsportes = function () {
     $.getJSON('/menu/obteresportes', function (data) {
         $(data).each(function () {
             $("#esportes").append("<li><a href='#'>" + this.CategoriaDescricao + "</a></li>");
@@ -18,10 +21,34 @@ app.obteresportes = function () {
     });
 };
 
-app.obtermarcas = function () {
+app.ObterMarcas = function () {
     $.getJSON('/menu/obtermarcas', function (data) {
         $(data).each(function () {
             $(".marcas").append("<li><a href='#'>" + this.MarcaDescricao + "</a></li>");
+        });
+    });
+};
+
+app.ObterClubesNacionais = function () {
+    $.getJSON('/menu/obterclubesnacionais', function (data) {
+        $(data).each(function () {
+            $("#clubesnacionais").append("<li><a href='#'>" + this.LinhaDescricao + "</a></li>");
+        });
+    });
+};
+
+app.ObterClubesInternacionais = function () {
+    $.getJSON('/menu/obterclubesinternacionais', function (data) {
+        $(data).each(function () {
+            $("#clubesinternacionais").append("<li><a href='#'>" + this.LinhaDescricao + "</a></li>");
+        });
+    });
+};
+
+app.ObterSelecoes = function () {
+    $.getJSON('/menu/obterselecoes', function (data) {
+        $(data).each(function () {
+            $("#selecoes").append("<li><a href='#'>" + this.LinhaDescricao + "</a></li>");
         });
     });
 };

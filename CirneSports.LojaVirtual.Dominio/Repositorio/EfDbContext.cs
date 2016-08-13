@@ -15,6 +15,12 @@ namespace CirneSports.LojaVirtual.Dominio.Repositorio
 
         public DbSet<MarcaVitrine> MarcaVitrine { get; set; }
 
+        public DbSet<ClubesNacionais> ClubesNacionais { get; set; }
+
+        public DbSet<ClubesInternacionais> ClubesInternacionais { get; set; }
+
+        public DbSet<Selecoes> Selecoes { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {            
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
