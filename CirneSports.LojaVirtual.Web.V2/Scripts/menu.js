@@ -32,7 +32,7 @@ app.ObterMarcas = function () {
 app.ObterClubesNacionais = function () {
     $.getJSON('/menu/obterclubesnacionais', function (data) {
         $(data).each(function () {
-            $("#clubesnacionais").append("<li><a href='#'>" + this.LinhaDescricao + "</a></li>");
+            $("#clubesnacionais").append("<li><a href='#'>" + this.Clube + "</a></li>");
         });
     });
 };
@@ -40,7 +40,7 @@ app.ObterClubesNacionais = function () {
 app.ObterClubesInternacionais = function () {
     $.getJSON('/menu/obterclubesinternacionais', function (data) {
         $(data).each(function () {
-            $("#clubesinternacionais").append("<li><a href='#'>" + this.LinhaDescricao + "</a></li>");
+            $("#clubesinternacionais").append("<li><a href='#'>" + this.Clube + "</a></li>");
         });
     });
 };
@@ -48,7 +48,7 @@ app.ObterClubesInternacionais = function () {
 app.ObterSelecoes = function () {
     $.getJSON('/menu/obterselecoes', function (data) {
         $(data).each(function () {
-            $("#selecoes").append("<li><a href='#'>" + this.LinhaDescricao + "</a></li>");
+            $("#selecoes").append("<li><a href='#'>" + this.Clube + "</a></li>");
         });
     });
 };
