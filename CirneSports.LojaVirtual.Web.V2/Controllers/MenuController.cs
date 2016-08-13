@@ -30,6 +30,7 @@ namespace CirneSports.LojaVirtual.Web.V2.Controllers
             return Json(categoria, JsonRequestBehavior.AllowGet);
         }
 
+        [OutputCache(Duration = 3600, Location = OutputCacheLocation.Server, VaryByParam = "none")]
         public JsonResult ObterMarcas()
         {
             _repositorio = new MenuRepositorio();
