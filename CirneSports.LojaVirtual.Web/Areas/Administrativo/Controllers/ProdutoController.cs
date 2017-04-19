@@ -86,7 +86,7 @@ namespace CirneSports.LojaVirtual.Web.Areas.Administrativo.Controllers
             if (prod != null)
             {
                 mensagem = string.Format("{0} excluído com sucesso!", prod.Nome);
-            }
+            }            
 
             return Json(mensagem, JsonRequestBehavior.AllowGet);
         }

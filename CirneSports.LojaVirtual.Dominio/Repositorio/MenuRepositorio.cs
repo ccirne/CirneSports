@@ -33,5 +33,30 @@ namespace CirneSports.LojaVirtual.Dominio.Repositorio
         {
             return _context.Selecoes.OrderBy(s => s.LinhaDescricao);
         }
+
+        public IEnumerable<FaixaEtaria> ObterFaixaEtarias()
+        {
+            return _context.FaixasEtarias.OrderBy(s => s.FaixaEtariaDescricao);
+        }
+
+        public IEnumerable<Genero> ObterGeneros()
+        {
+            return _context.Generos.OrderBy(s => s.GeneroDescricao);
+        }
+
+        public IEnumerable<Grupo> ObterGrupos()
+        {
+            return _context.Grupos.OrderBy(s => s.GrupoDescricao);
+        }
+
+        public IEnumerable<Modalidade> ObterModalidades()
+        {
+            return _context.Modalidades.OrderBy(s => s.ModalidadeDescricao);
+        }
+
+        public IEnumerable<SubGrupo> ObterSubGrupos()
+        {
+            return _context.SubGrupos.OrderBy(s => s.SubGrupoDescricao);
+        }
     }
 }

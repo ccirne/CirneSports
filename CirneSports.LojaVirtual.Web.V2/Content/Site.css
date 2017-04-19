@@ -36,6 +36,15 @@ textarea {
 .imageLogo {
     margin-top:2px;
     margin-left:-5px;
-    width: 70px;
+    width: 65px;
     height: 15px;
+}
+
+.logo {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14pt;
+    font-weight:500;
+    font-weight:bold;
+    color:white;
+    float:left;
 }
