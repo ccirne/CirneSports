@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CirneSports.LojaVirtual.Dominio", "CirneSports.LojaVirtual.Dominio\CirneSports.LojaVirtual.Dominio.csproj", "{08211358-847E-48CB-9DDE-8606280DC1A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CirneSports.LojaVirtual.Web", "CirneSports.LojaVirtual.Web\CirneSports.LojaVirtual.Web.csproj", "{9230DE57-F8AF-4DFB-B054-A8EFB2326EC9}"

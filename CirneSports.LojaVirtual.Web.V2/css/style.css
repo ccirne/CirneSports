@@ -868,7 +868,7 @@ strong{
 	border: 1px solid #eee;
 	border-right:3px solid #eee;
 	border-bottom:3px solid #eee;
-	border-radius: 6 px;
+	border-radius: 6px;
 }
 
 .recent-posts .s-item img{
@@ -1102,13 +1102,13 @@ strong{
 
 .shop-items .item{
    position:relative;
-	max-height: 320px;
-	max-width: 250px;
-	margin: 10px auto;
-	padding: 20px 10px 10px 10px;
+   max-height: 320px;
+   max-width: 250px;
+   margin: 10px auto;
+   padding: 20px 10px 10px 10px;
    background:#fff;
    border:1px solid #f2f2f2;
-	border-right: 2px solid #eee;
+   border-right: 2px solid #eee;
    border-bottom:2px solid #eee;
    border-radius:7px;
 }
@@ -1182,10 +1182,10 @@ strong{
 	border-radius: 5px;
 	font-size: 13px;
 	font-weight: bold;
-   background:#006400;
-   color:#fff;
-   width:40px;
-   text-align:center;
+    background:#006400;
+    color:#fff;
+    width:80px;
+    text-align:center;
 }
 
 .shop-items .btn{

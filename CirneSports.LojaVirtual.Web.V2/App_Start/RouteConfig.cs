@@ -20,6 +20,8 @@ namespace CirneSports.LojaVirtual.Web.V2
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Nav", action = "Index", id = UrlParameter.Optional }
             );
+
+
         }
     }
 }
