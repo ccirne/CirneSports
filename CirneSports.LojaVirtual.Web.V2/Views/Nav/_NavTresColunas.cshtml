@@ -1,0 +1,82 @@
+﻿@model CirneSports.LojaVirtual.Web.V2.Models.ProdutosViewModel
+@using CirneSports.LojaVirtual.Web.V2.Helpers
+
+<div class="row">
+
+    @for (var i = 0; i < Model.Produtos.Count(); i++)
+    {
+        var primeiro = i == 0;
+        var ultimo = i == Model.Produtos.Count - 1;
+        var atual = i + 1;
+        var anterior = i;
+        var tam = 0;
+
+        if (primeiro || anterior % 3 == 0)
+        {
+            @Html.Raw("<div class= \"row\" >");
+        }
+
+
+
+        <div class="col-md-4 col-sm-6 col-xs-12">
+
+            <div class="item" style="height:320px;">
+                <!-- Item image -->
+                <div class="item-image">
+                    @*<a href="@Url.Action("Detalhes","DetalhesProduto", new {id = @Model.Produtos[i].ProdutoModeloCor, marca = @Model.Produtos[i].MarcaDescricao.ToLower(), produto = @Model.Produtos[i].ProdutoDescricao.ToSeoUrl() })">
+                    <img src="@ImageHelper.CaminhoImagem()/180x180/@Model.Produtos[i].Imagem" alt="@Model.Produtos[i].ProdutoDescricao" class="img-responsive" />
+                </a>*@
+                    <a href="#">
+                        <img src="@ImageHelper.CaminhoImagem()/180x180/@Model.Produtos[i].Imagem" alt="@Model.Produtos[i].ProdutoDescricao" class="img-responsive" />
+                    </a>
+                </div>
+                <!-- Item details -->
+                <div class="item-details" style="text-align:center;">
+                    <!-- Name -->
+                    <h4>    
+
+                        @*<a href="@Url.Action("Detalhes","DetalhesProduto", new {id = @Model.Produtos[i].ProdutoModeloCor, marca = @Model.Produtos[i].MarcaDescricao.ToLower(), produto = @Model.Produtos[i].ProdutoDescricao.ToSeoUrl() })" class="zoom">
+                    @Model.Produtos[i].ProdutoDescricao
+                </a>*@
+                        <a href="#" class="zoom">                            
+                            @if (@Model.Produtos[i].ProdutoDescricao.Length < 30)
+                            {
+                                @Model.Produtos[i].ProdutoDescricao;
+                            }
+                            else
+                            {
+                                @Model.Produtos[i].ProdutoDescricao.Substring(0,30);
+                            }   
+                            @*@Model.Produtos[i].ProdutoDescricao;*@                        
+                        </a>
+
+
+                    </h4>
+                    <div class="clearfix"></div>
+                    <!-- Para. Note more than 2 lines. -->
+                    <p>@Model.Produtos[i].MarcaDescricao</p>
+                    <hr />
+                    <!-- Price -->
+                    <div class="item-price pull-left" style="width:80px;font-size:13px;">@Model.Produtos[i].Preco.ToString("C")</div> 
+                    <!-- Add to cart -->                                                           
+                    <div class="pull-right"><a href="#" class="btn btn-danger btn-sm">Comprar</a></div>                    
+                    <div class="clearfix"></div>
+                    <p>@Model.Produtos[i].ProdutoModeloCor</p>                    
+                    <div class="clearfix"></div>                    
+                </div>
+            </div>
+            <div class="item-parcela">Em até 3x de R$ @Model.Produtos[i].Parcela sem juros</div>
+            <br />
+        </div>
+
+
+
+
+        if (ultimo || atual % 3 == 0)
+        {
+            @Html.Raw("</div>");
+        }
+    }
+
+</div>
+

@@ -1,8 +1,7 @@
-﻿
+﻿@model CirneSports.LojaVirtual.Web.V2.Models.ProdutosViewModel
 @{
-    ViewBag.Title = "Navegacao";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Navegacao";    
 }
 
-<h2>Navegacao</h2>
+@Html.Partial("_Vitrine", @Model)
 

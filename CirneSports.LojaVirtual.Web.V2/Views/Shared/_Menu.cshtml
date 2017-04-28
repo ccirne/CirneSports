@@ -1,23 +1,67 @@
 ﻿
+@using CirneSports.LojaVirtual.Dominio.Repositorio
+
+@{
+    MenuRepositorio _menu = new MenuRepositorio();
+    ViewBag.ClubesNacionais = _menu.ObterClubesNacionais();
+    ViewBag.ClubesInternacionais = _menu.ObterClubesInternacionais();
+    ViewBag.Selecoes = _menu.ObterSelecoes();
+    ViewBag.Esportes = _menu.ObterCategorias();
+}
 <div class="navi">
     <ul id="main-menu" class="sm sm-mint">
+
         <li>
             <a href="#">ESPORTES</a>
-            <ul id="esportes"></ul>
+            <ul id="esportes">
+                @foreach (var itens in ViewBag.Esportes)
+                {
+                    <li><a href=@String.Concat("/nav/esportes/", @itens.CategoriaCodigo, "/", @itens.CategoriaDescricao)>@itens.CategoriaDescricao</a></li>
+                }
+            </ul>
         </li>
 
         <li>
-            <a href="#">HOMENS</a>
+            <a href="/nav/genero/0002/homens/">HOMENS</a>
             <ul>
                 <li>
-                    <a href='#'>CALÇADOS</a>
+                    <a href='/nav/genero/0002/homens/0003/calçados'>CALÇADOS</a>
                     <ul>
-                        <li><a href='#'>CHUTEIRA</a></li>
-                        <li><a href='#'>CHINELO</a></li>
+                        <li><a href='/nav/genero/0002/homens/0003/calcados/0082/chuteira-campo'>CHUTEIRA DE CAMPO</a></li>
+                        <li><a href='/nav/genero/0002/homens/0003/calcados/0136/chuteira-society'>CHUTEIRA SOCIETY</a></li>
+                        <li><a href='/nav/genero/0002/homens/0003/calcados/0084/tenis'>TENIS</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href='#'>ROUPAS</a>
+                    <a href='/nav/genero/0002/homens/0001/roupas'>ROUPAS</a>
+                    <ul>
+                        <li><a href='/nav/genero/0002/homens/0001/roupass/0739/camisas-times'>CAMISA DE TIMES</a></li>
+                        <li><a href='/nav/genero/0002/homens/0001/roupass/0002/bermudas'>BERMUDAS</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="/nav/genero/0001/mulheres/">MULHERES</a>
+            <ul>
+                <li>
+                    <a href="/nav/genero/0001/mulheres/0003/calçados">CALÇADOS</a>
+                    <ul>
+                        <li><a href='#'>Linha Casual</a></li>
+                        <li><a href='#'>Linha Training</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/nav/genero/0001/mulheres/0001/calçados">ROUPAS</a>
+                    <ul>
+                        <li><a href='#'>Camisetas</a></li>
+                        <li><a href='#'>Calças</a></li>
+                        <li><a href='#'>Bermudas</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/nav/genero/0001/mulheres/0004/acessórios">ACESSÓRIOS</a>
                     <ul>
                         <li><a href='#'>CAMISA DE TIMES</a></li>
                         <li><a href='#'>BERMUDAS</a></li>
@@ -27,39 +71,11 @@
         </li>
 
         <li>
-            <a href="#">MULHERES</a>
-            <ul>
-                <li>
-                    <a href='#'>CALÇADOS</a>
-                    <ul>
-                        <li><a href='#'>LINHA CASUAL</a></li>
-                        <li><a href='#'>LINHA TRAINING</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href='#'>ROUPAS</a>
-                    <ul>
-                        <li><a href='#'>CAMISETAS</a></li>
-                        <li><a href='#'>CALÇAS</a></li>
-                        <li><a href='#'>BERMUDAS</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href='#'>ACESSÓRIOS</a>
-                    <ul>
-                        <li><a href='#'>CAMISA DE TIMES</a></li>
-                        <li><a href='#'>BERMUDAS</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-
-        <li>
-            <a href="#">CALÇADOS</a>
+            <a href="/nav/0003/calçados/">CALÇADOS</a>
             <ul>
                 <li>
                     <a href='#'>MARCAS</a>
-                    <ul class="marcas"></ul>
+                    <ul id="calcadosmarcas"></ul>
                 </li>
 
                 <li>
@@ -70,11 +86,11 @@
         </li>
 
         <li>
-            <a href="#">ROUPAS</a>
+            <a href="/nav/0001/calçados/">ROUPAS</a>
             <ul>
                 <li>
                     <a href='#'>MARCAS</a>
-                    <ul class="marcas"></ul>
+                    <ul id="roupasmarcas"></ul>
                 </li>
 
                 <li>
@@ -84,7 +100,6 @@
 
             </ul>
         </li>
-
 
 
         <li>
@@ -92,21 +107,54 @@
             <ul>
                 <li>
                     <a href="#">NACIONAIS</a>
-                    <ul id="clubesnacionais"></ul>
+                    <ul id="clubesnacionais">
+                        @foreach (var itens in ViewBag.ClubesNacionais)
+                        {
+                            <li><a href= @String.Concat("/nav/times/", @itens.LinhaCodigo , "/" , @itens.LinhaDescricao)>@itens.LinhaDescricao</a></li>
+                        }
+                    </ul>
                 </li>
 
                 <li>
                     <a href="#">INTERNACIONAIS</a>
-                    <ul id="clubesinternacionais"></ul>
+                    <ul id="clubesinternacionais">
+                        @foreach (var itens in ViewBag.ClubesInternacionais)
+                        {
+                            <li><a href=@String.Concat("/nav/times/", @itens.LinhaCodigo , "/" , @itens.LinhaDescricao)>@itens.LinhaDescricao</a></li>
+                        }
+                    </ul>
                 </li>
 
                 <li>
                     <a href="#">SELEÇÕES</a>
-                    <ul id="selecoes"></ul>
+                    <ul id="selecoes">
+                        @foreach (var itens in ViewBag.Selecoes)
+                        {
+                            <li><a href=@String.Concat("/nav/times/", @itens.LinhaCodigo , "/" , @itens.LinhaDescricao)>@itens.LinhaDescricao</a></li>
+                        }
+                    </ul>
                 </li>
 
             </ul>
         </li>
 
+
+        <li>
+            <a href="#">MARCAS</a>
+            <ul>
+                <li><a href="/nav/0002/adidas">Adidas</a></li>
+                <li><a href="/nav/0005/asics">ASICS</a></li>
+                <li><a href ="/nav/1239/caloi">Caloi</a></li>
+                <li><a href="/nav/0082/fila">Fila</a></li>
+                <li><a href="/nav/0130/mizuno">Mizuno</a></li>
+                <li><a href="/nav/0073/nike">Nike</a></li>
+                <li><a href="/nav/0117/topper">Topper</a></li>
+                <li><a href="/nav/1042/olympikus">Olympikus</a></li>
+                <li><a href="/nav/0081/penalty">Penalty</a></li>
+                <li><a href="/nav/0091/puma">Puma</a></li>
+                <li><a href="/nav/0098/reebok">Reebok</a></li>
+                <li><a href="/nav/0118/umbro">Umbro</a></li>
+            </ul>
+        </li>
     </ul>
 </div>
