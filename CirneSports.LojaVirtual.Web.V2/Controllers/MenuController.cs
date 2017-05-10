@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 using CirneSports.LojaVirtual.Dominio.Repositorio;
+using CirneSports.LojaVirtual.Web.V2.HtmlHelpers;
 
 namespace CirneSports.LojaVirtual.Web.V2.Controllers
 {

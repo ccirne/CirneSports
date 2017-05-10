@@ -2,6 +2,8 @@
 using System.Linq;
 using CirneSports.LojaVirtual.Dominio.Entidade;
 using CirneSports.LojaVirtual.Dominio.Entidade.Vitrine;
+using CirneSports.LojaVirtual.Dominio.Dto;
+using FastMapper;
 
 namespace CirneSports.LojaVirtual.Dominio.Repositorio
 {
@@ -57,6 +59,44 @@ namespace CirneSports.LojaVirtual.Dominio.Repositorio
         public IEnumerable<SubGrupo> ObterSubGrupos()
         {
             return _context.SubGrupos.OrderBy(s => s.SubGrupoDescricao);
+        }
+
+        public IEnumerable<Categoria> ObterTenisCategotia()
+        {
+            var categorias = new[] { "0005", "0082", "0112", "0010", "0006", "0063" };
+            return _context.Categorias.Where(c => categorias.Contains(c.CategoriaCodigo)).OrderBy(c => c.CategoriaDescricao);
+        }
+
+        public SubGrupo ObterSubGruposTenis()
+        {
+            return _context.SubGrupos.FirstOrDefault(s => s.SubGrupoCodigo == "0084");
+        }
+
+        public Modalidade ObterModalidadeCasual()
+        {
+            const string CodigoModalidade = "0001";
+            return _context.Modalidades.FirstOrDefault(m => m.ModalidadeCodigo == CodigoModalidade);
+        }
+
+        //executar no Package Manager Console "PM>Install-Package FastMapper"
+        public IEnumerable<SubGrupoDto> ObterCasualSubGrupo()
+        {
+            var subgrupos = new[] { "0001", "0102", "0103", "0738", "0084", "0921" };
+
+            var query = from s in _context.SubGrupos
+                        .Where(s => subgrupos.Contains(s.SubGrupoCodigo))
+                        .Select(s => new { s.SubGrupoCodigo, s.SubGrupoDescricao })
+                        .Distinct()
+                        .OrderBy(s => s.SubGrupoDescricao)
+
+                        select new
+                        {
+                            s.SubGrupoCodigo,
+                            s.SubGrupoDescricao
+                        };
+
+            return query.Project().To<SubGrupoDto>().ToList();
+
         }
     }
 }

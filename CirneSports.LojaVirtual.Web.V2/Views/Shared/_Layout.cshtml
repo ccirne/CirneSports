@@ -206,6 +206,25 @@
     @Scripts.Render("~/Scripts/startmenu")
     @Scripts.Render("~/Scripts/jsprojetos")
 
+    @RenderSection("scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+            loadCart();
+        });
+
+        function loadCart() {
+            var cartFromMenu = $("#cartMenu");
+            var url = cartFromMenu.data("url");
+            cartFromMenu.load(url);
+
+            var modalElement = $("#shoppingcart").find(".modal-content");
+            var url = modalElement.data("url");
+            modalElement.load(url);
+        }
+    </script>
+
+
 
 </body>
 </html>

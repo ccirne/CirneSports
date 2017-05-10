@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Text.RegularExpressions;
 
-namespace CirneSports.LojaVirtual.Web
+namespace CirneSports.LojaVirtual.Web.V2.HtmlHelpers
 {
     public static class StringHelpers
     {
@@ -29,6 +29,17 @@ namespace CirneSports.LojaVirtual.Web
             encodeUrl = encodeUrl.Trim('-');
 
             return encodeUrl;
+        }
+
+        public static string UpperCaseFirst(this string title)
+        {
+            // Check for empty string.
+            if (string.IsNullOrEmpty(title))
+            {
+                return string.Empty;
+            }
+            // Return char and concat substring.
+            return char.ToUpper(title[0]) + title.Substring(1);
         }
     }
 }
