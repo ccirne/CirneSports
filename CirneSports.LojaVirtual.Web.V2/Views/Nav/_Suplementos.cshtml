@@ -1,1 +1,15 @@
-﻿
+﻿@model CirneSports.LojaVirtual.Web.V2.Models.CategoriaSubGruposViewModel
+@using CirneSports.LojaVirtual.Web.V2.HtmlHelpers
+
+@foreach (var item in Model.SubGrupos)
+{
+    <li>
+        @Html.ActionLink(@item.SubGrupoDescricao, "ObterCategoriaSubGrupos",
+            new
+            {
+                categoriaCodigo = @Model.Categoria.CategoriaCodigo,
+                subGrupoCodigo = @item.SubGrupoCodigo,
+                subGrupoDescricao = @item.SubGrupoDescricao.ToSeoUrl()
+            });
+    </li>
+} 

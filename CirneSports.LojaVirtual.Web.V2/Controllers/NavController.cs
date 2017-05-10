@@ -202,18 +202,17 @@ namespace CirneSports.LojaVirtual.Web.V2.Controllers
         public ActionResult Suplementos()
         {
             _menu = new MenuRepositorio();
-            //var categoria = _menu.Suplemento();
-            //var subGrupos = _menu.ObterSuplementos();
+            var categoria = _menu.ObterSuplemento();
+            var subGrupos = _menu.ObterSuplementoSubGrupo();
 
 
-            //CategoriaSubGruposViewModel model = new CategoriaSubGruposViewModel
-            //{
-            //    Categoria = categoria,
-            //    SubGrupos = subGrupos,
+            CategoriaSubGruposViewModel model = new CategoriaSubGruposViewModel
+            {
+                Categoria = categoria,
+                SubGrupos = subGrupos,
 
-            //};
-            //return PartialView("_Suplementos", model);
-            return PartialView("_Suplementos");
+            };
+            return PartialView("_Suplementos", model);
         }
 
         [Route("{categoriaCodigo}/suplementos/{subGrupoCodigo}/{subGrupoDescricao}")]

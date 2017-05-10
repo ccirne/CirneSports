@@ -98,5 +98,21 @@ namespace CirneSports.LojaVirtual.Dominio.Repositorio
             return query.Project().To<SubGrupoDto>().ToList();
 
         }
+
+        public Categoria ObterSuplemento()
+        {
+            const string categoriaSuplemento = "0008";
+            return _context.Categorias.FirstOrDefault(c => c.CategoriaCodigo == categoriaSuplemento);
+        }
+
+        public IEnumerable<SubGrupo> ObterSuplementoSubGrupo()
+        {
+            var subgrupos = new[] { "0162", "0381", "0557", "0564", "0565", "0977", "1082", "1083", "1084", "1085" };
+
+            return _context.SubGrupos
+                   .Where(s => subgrupos.Contains(s.SubGrupoCodigo) && s.GrupoCodigo == "0012")
+                   .Distinct()
+                   .OrderBy(s => s.SubGrupoDescricao);
+        }
     }
 }
