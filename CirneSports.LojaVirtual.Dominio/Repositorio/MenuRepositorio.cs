@@ -3,7 +3,7 @@ using System.Linq;
 using CirneSports.LojaVirtual.Dominio.Entidade;
 using CirneSports.LojaVirtual.Dominio.Entidade.Vitrine;
 using CirneSports.LojaVirtual.Dominio.Dto;
-using FastMapper;
+using FastMapper; //Install-Package FastMapper
 
 namespace CirneSports.LojaVirtual.Dominio.Repositorio
 {

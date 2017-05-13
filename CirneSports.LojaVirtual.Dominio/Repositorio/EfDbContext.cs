@@ -33,6 +33,18 @@ namespace CirneSports.LojaVirtual.Dominio.Repositorio
 
         public DbSet<ProdutoVitrine> ProdutoVitrine { get; set; }
 
+        public DbSet<Tamanho> Tamanhos { get; set; }
+
+        public DbSet<Cor> Cores { get; set; }
+
+        public DbSet<CirneProdutos> CirneProdutos { get; set; }
+
+        public DbSet<Estoque> Estoque { get; set; }
+
+        public DbSet<Marca> Marcas { get; set; }
+
+        public DbSet<ProdutoModelo> ProdutoModelo { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {            
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
