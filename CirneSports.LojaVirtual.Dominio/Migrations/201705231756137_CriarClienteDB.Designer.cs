@@ -7,13 +7,13 @@ namespace CirneSports.LojaVirtual.Dominio.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class CriarUsuario : IMigrationMetadata
+    public sealed partial class CriarClienteDB : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CriarUsuario));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(CriarClienteDB));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705230306171_CriarUsuario"; }
+            get { return "201705231756137_CriarClienteDB"; }
         }
         
         string IMigrationMetadata.Source

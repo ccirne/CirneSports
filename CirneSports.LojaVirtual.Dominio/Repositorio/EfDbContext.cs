@@ -5,15 +5,22 @@ using CirneSports.LojaVirtual.Dominio.Entidade.Vitrine;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 // comandos para criar a estutura segurança no DB usando o Package Manager Console
+// PM> Enable-Migrations
 // PM> Add-Migration -project CirneSports.LojaVirtual.Dominio
 // Name: --> informar um nome
-// 
+// PM> Update-DataBase – aplica as alterações no banco de dados
 
 namespace CirneSports.LojaVirtual.Dominio.Repositorio
 {
-    //public class EfDbContext :  IdentityDbContext<Cliente>
-    public class EfDbContext : DbContext
+    public class EfDbContext :  IdentityDbContext<Cliente>
+    //public class EfDbContext : DbContext
     {
+        public EfDbContext()
+            : base(@"Data Source=CLAUDIOCIRNE-PC; Initial Catalog=CIRNESPORTS_DB; Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False")
+        { 
+        }
+   
+
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Administrador> Administradores { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
