@@ -12,7 +12,7 @@ namespace CirneSports.LojaVirtual.Dominio.Repositorio
         public DetalhesProdutoDto ObterProdutoModelo(string codigo, string corCodigo)
         {
 
-            var query = from p in _context.CirneProdutos
+            var query = from p in _context.CirneProduto
                         join c in _context.Cores on p.CorCodigo equals c.CorCodigo
                         join t in _context.Tamanhos on p.TamanhoCodigo equals t.TamanhoCodigo
                         join e in _context.Estoque on p.ProdutoCodigo equals e.ProdutoCodigo
@@ -59,7 +59,7 @@ namespace CirneSports.LojaVirtual.Dominio.Repositorio
 
             DetalhesProdutoDto dto = new DetalhesProdutoDto
             {
-                Produto = Mapper.DynamicMap<CirneProdutos>(produto),
+                Produto = Mapper.DynamicMap<CirneProduto>(produto),
                 Cores = cores.Select(Mapper.DynamicMap<Cor>),
                 Tamanhos = tamanhos.Select(Mapper.DynamicMap<Tamanho>)
             };
@@ -73,7 +73,7 @@ namespace CirneSports.LojaVirtual.Dominio.Repositorio
         public DetalhesProdutoDto ObterProdutoPorCodigo(string codigo, string corCodigo, string tamanho)
         {
 
-            var query = from p in _context.CirneProdutos
+            var query = from p in _context.CirneProduto
                         join c in _context.Cores on p.CorCodigo equals c.CorCodigo
                         join t in _context.Tamanhos on p.TamanhoCodigo equals t.TamanhoCodigo
                         join e in _context.Estoque on p.ProdutoCodigo equals e.ProdutoCodigo
@@ -120,7 +120,7 @@ namespace CirneSports.LojaVirtual.Dominio.Repositorio
 
             DetalhesProdutoDto dto = new DetalhesProdutoDto
             {
-                Produto = Mapper.DynamicMap<CirneProdutos>(produto),
+                Produto = Mapper.DynamicMap<CirneProduto>(produto),
                 Cores = cores.Select(Mapper.DynamicMap<Cor>),
                 Tamanhos = tamanhos.Select(Mapper.DynamicMap<Tamanho>)
             };

@@ -1,5 +1,6 @@
 ﻿@model CirneSports.LojaVirtual.Web.V2.Models.ProdutosViewModel
 @using CirneSports.LojaVirtual.Web.V2.Helpers
+@using CirneSports.LojaVirtual.Web.V2.HtmlHelpers;
 
 <div class="row">
 
@@ -9,7 +10,6 @@
         var ultimo = i == Model.Produtos.Count - 1;
         var atual = i + 1;
         var anterior = i;
-        var tam = 0;
 
         if (primeiro || anterior % 3 == 0)
         {
@@ -24,21 +24,30 @@
                 <!-- Item image -->
                 <div class="item-image">
                     @*<a href="@Url.Action("Detalhes","DetalhesProduto", new {id = @Model.Produtos[i].ProdutoModeloCor, marca = @Model.Produtos[i].MarcaDescricao.ToLower(), produto = @Model.Produtos[i].ProdutoDescricao.ToSeoUrl() })">
-                    <img src="@ImageHelper.CaminhoImagem()/180x180/@Model.Produtos[i].Imagem" alt="@Model.Produtos[i].ProdutoDescricao" class="img-responsive" />
-                </a>*@
-                    <a href="#">
+                        <img src="@ImageHelper.CaminhoImagem()/180x180/@Model.Produtos[i].Imagem" alt="@Model.Produtos[i].ProdutoDescricao" class="img-responsive" />
+                    </a>*@
+
+                    <a href="@Url.Action("Detalhes", "DetalhesProduto", new
+                                     {
+                                         codigo = @Model.Produtos[i].ProdutoModeloCor.Substring(0, 6),
+                                         marca = @Model.Produtos[i].MarcaDescricao.ToLower(),
+                                         produto = @Model.Produtos[i].ProdutoDescricao.ToSeoUrl(),
+                                         corCodigo = @Model.Produtos[i].ProdutoModeloCor.Substring(6)
+                                     })">
                         <img src="@ImageHelper.CaminhoImagem()/180x180/@Model.Produtos[i].Imagem" alt="@Model.Produtos[i].ProdutoDescricao" class="img-responsive" />
                     </a>
+
                 </div>
                 <!-- Item details -->
                 <div class="item-details" style="text-align:center;">
                     <!-- Name -->
                     <h4>    
 
-                        @*<a href="@Url.Action("Detalhes","DetalhesProduto", new {id = @Model.Produtos[i].ProdutoModeloCor, marca = @Model.Produtos[i].MarcaDescricao.ToLower(), produto = @Model.Produtos[i].ProdutoDescricao.ToSeoUrl() })" class="zoom">
-                    @Model.Produtos[i].ProdutoDescricao
-                </a>*@
-                        <a href="#" class="zoom">                            
+                        <a href="@Url.Action("Detalhes", "DetalhesProduto", new { codigo = @Model.Produtos[i].ProdutoModeloCor.Substring(0, 6), marca = @Model.Produtos[i].MarcaDescricao.ToLower(), produto = @Model.Produtos[i].ProdutoDescricao.ToSeoUrl(), corCodigo = @Model.Produtos[i].ProdutoModeloCor.Substring(6) })" class="zoom">
+                            @Model.Produtos[i].ProdutoDescricao
+                        </a>
+
+                        @*<a href="#" class="zoom">                            
                             @if (@Model.Produtos[i].ProdutoDescricao.Length < 30)
                             {
                                 @Model.Produtos[i].ProdutoDescricao;
@@ -46,9 +55,8 @@
                             else
                             {
                                 @Model.Produtos[i].ProdutoDescricao.Substring(0,30);
-                            }   
-                            @*@Model.Produtos[i].ProdutoDescricao;*@                        
-                        </a>
+                            }                                                   
+                        </a>*@
 
 
                     </h4>

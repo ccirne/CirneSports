@@ -43,11 +43,11 @@ namespace CirneSports.LojaVirtual.Dominio.Entidade
                 body.AppendFormat("Valor total do pedido: {0:c}",carrinho.ObterValorTotal())
                       .AppendLine("----------------------")
                       .AppendLine("Enviar para:")
-                      .AppendLine(pedido.NomeCliente)
-                      .AppendLine(pedido.Email)
-                      .AppendLine(pedido.Endereco ?? "")
-                      .AppendLine(pedido.Cidade ?? "")
-                      .AppendLine(pedido.Complemento ?? "")
+                      //.AppendLine(pedido.NomeCliente)
+                      //.AppendLine(pedido.Email)
+                      //.AppendLine(pedido.Endereco ?? "")
+                      //.AppendLine(pedido.Cidade ?? "")
+                      //.AppendLine(pedido.Complemento ?? "")
                       .AppendLine("----------------------")
                       .AppendFormat("Para presente?: {0}", pedido.EmbrulhaPresente ? "Sim" : "Não");
                        

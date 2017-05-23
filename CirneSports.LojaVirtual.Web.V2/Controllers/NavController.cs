@@ -225,6 +225,27 @@ namespace CirneSports.LojaVirtual.Web.V2.Controllers
 
         }
 
+        [Route("nav/grupo/{id}/{grupo}")]
+        public ActionResult ObterProdutosPorGrupo(string id, string grupo)
+        {
+            _repositorio = new ProdutoModeloRepositorio();
+            var produtos = _repositorio.ObterProdutosVitrine(grupo: id);
+            _model = new ProdutosViewModel { Produtos = produtos, Titulo = grupo.UpperCaseFirst() };
+            return View("Navegacao", _model);
+
+        }
+
+        [Route("nav/categoria/{id}/{categoria}")]
+        public ActionResult ObterProdutoPorCategoria(string id, string categoria)
+        {
+            _repositorio = new ProdutoModeloRepositorio();
+            var produtos = _repositorio.ObterProdutosVitrine(categoria: id);
+
+            _model = new ProdutosViewModel { Produtos = produtos, Titulo = categoria.UpperCaseFirst() };
+
+            return View("Navegacao", _model);
+        }
+
 #region [ Consulta ]
 
         public ActionResult ConsultarProduto (string termo)

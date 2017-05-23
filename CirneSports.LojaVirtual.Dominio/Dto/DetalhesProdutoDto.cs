@@ -9,7 +9,7 @@ namespace CirneSports.LojaVirtual.Dominio.Dto
 {
     public class DetalhesProdutoDto
     {
-        public CirneProdutos Produto { get; set; }
+        public CirneProduto Produto { get; set; }
         public IEnumerable<Cor> Cores { get; set; }
         public IEnumerable<Tamanho> Tamanhos { get; set; }
     }

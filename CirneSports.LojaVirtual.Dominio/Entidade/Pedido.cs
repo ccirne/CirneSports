@@ -1,41 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CirneSports.LojaVirtual.Dominio.Entidade
 {
     public class Pedido
     {
-        [Required(ErrorMessage="Informe seu nome")]
-        public string NomeCliente { get; set; }
+        [Key]
+        public int Id { get; set; }
 
-        [Required(ErrorMessage = "Informe seu Cep")]
-        [Display(Name = "Cep:")]
-        public string Cep { get; set; }
+        public string ClienteId { get; set; }
 
-        [Required(ErrorMessage = "Informe seu endereço")]
-        [Display(Name = "Endereço:")]
-        public string Endereco { get; set; }
+        [ForeignKey("ClienteId")]
+        public virtual Cliente Cliente { get; set; }
 
-        [Display(Name = "Complemento:")]
-        public string Complemento { get; set; }
+        public virtual ICollection<ProdutoPedido> ProdutosPedido { get; set; }
 
-        [Required(ErrorMessage = "Informe sua cidade")]
-        [Display(Name = "Cidade:")]
-        public string Cidade { get; set; }
+        public bool EmbrulhaPresente { get; set; }
 
-        [Required(ErrorMessage = "Informe seu bairro")]
-        [Display(Name = "Bairro:")]
-        public string Bairro { get; set; }
-
-        [Required(ErrorMessage = "Informe seu estado")]
-        [Display(Name = "Estado:")]
-        public string Estado { get; set; }
-
-        [Required(ErrorMessage = "Informe seu e-mail")]
-        [Display(Name = "E-mail:")]
-        [EmailAddress(ErrorMessage = "E-mail inválido")]
-        public string Email { get; set; }
-
-        public Boolean EmbrulhaPresente { get; set; }
+        public bool Pago { get; set; }
     }
 }

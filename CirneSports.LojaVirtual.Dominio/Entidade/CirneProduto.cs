@@ -2,7 +2,7 @@
 
 namespace CirneSports.LojaVirtual.Dominio.Entidade
 {
-    public class CirneProdutos
+    public class CirneProduto
     {
         [Key]
         public int ProdutoId { get; set; }
