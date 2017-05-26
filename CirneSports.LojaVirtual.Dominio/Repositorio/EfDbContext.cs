@@ -3,6 +3,7 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using CirneSports.LojaVirtual.Dominio.Entidade;
 using CirneSports.LojaVirtual.Dominio.Entidade.Vitrine;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 
 // comandos para criar a estutura segurança no DB usando o Package Manager Console
 // PM> Enable-Migrations
@@ -15,14 +16,21 @@ namespace CirneSports.LojaVirtual.Dominio.Repositorio
     public class EfDbContext :  IdentityDbContext<Cliente>
     //public class EfDbContext : DbContext
     {
-        public EfDbContext()
-            : base(@"Data Source=CLAUDIOCIRNE-PC; Initial Catalog=CIRNESPORTS_DB; Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False")
-        { 
-        }
-   
+        //public EfDbContext()
+        //    : base(@"Data Source=CLAUDIOCIRNE-PC; Initial Catalog=CIRNESPORTS_DB; Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False")
+        //{ 
+        //}
+
+        public EfDbContext() : base("EFDbContext") { }
 
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Administrador> Administradores { get; set; }
+
+        public static EfDbContext Create()
+        {
+            return new EfDbContext();
+        }
+
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<MarcaVitrine> MarcaVitrine { get; set; }
         public DbSet<ClubesNacionais> ClubesNacionais { get; set; }
@@ -41,7 +49,8 @@ namespace CirneSports.LojaVirtual.Dominio.Repositorio
         public DbSet<Marca> Marcas { get; set; }
         public DbSet<ProdutoModelo> ProdutoModelo { get; set; }
 
-
+        public DbSet<Pedido> Pedidos { get; set; }
+        public DbSet<ProdutoPedido> ProdutosPedidos { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

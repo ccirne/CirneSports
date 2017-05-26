@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CirneSports.LojaVirtual.Dominio", "CirneSports.LojaVirtual.Dominio\CirneSports.LojaVirtual.Dominio.csproj", "{08211358-847E-48CB-9DDE-8606280DC1A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CirneSports.LojaVirtual.Web", "CirneSports.LojaVirtual.Web\CirneSports.LojaVirtual.Web.csproj", "{9230DE57-F8AF-4DFB-B054-A8EFB2326EC9}"
@@ -22,11 +24,9 @@ Global
 		{9230DE57-F8AF-4DFB-B054-A8EFB2326EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9230DE57-F8AF-4DFB-B054-A8EFB2326EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9230DE57-F8AF-4DFB-B054-A8EFB2326EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9230DE57-F8AF-4DFB-B054-A8EFB2326EC9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{853C8B16-47E3-4651-8925-0D42CF7CA06E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{853C8B16-47E3-4651-8925-0D42CF7CA06E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{853C8B16-47E3-4651-8925-0D42CF7CA06E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{853C8B16-47E3-4651-8925-0D42CF7CA06E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7CE4B7A4-1C72-407D-9A0C-D95E094F22C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7CE4B7A4-1C72-407D-9A0C-D95E094F22C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CE4B7A4-1C72-407D-9A0C-D95E094F22C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
