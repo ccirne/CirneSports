@@ -7,9 +7,9 @@ using System;
 
 // comandos para criar a estutura segurança no DB usando o Package Manager Console
 // PM> Enable-Migrations
-// PM> Add-Migration -project CirneSports.LojaVirtual.Dominio
+// PM> Add-Migration -project CirneSports.LojaVirtual.Dominio -verbose
 // Name: --> informar um nome
-// PM> Update-DataBase – aplica as alterações no banco de dados
+// PM> Update-DataBase -project CirneSports.LojaVirtual.Dominio –-> aplica as alterações no banco de dados
 
 namespace CirneSports.LojaVirtual.Dominio.Repositorio
 {

@@ -8,7 +8,7 @@ namespace CirneSports.LojaVirtual.Dominio.Entidade
         private readonly List<ItemCarrinho> _itemCarrinho = new List<ItemCarrinho>();
 
         //Adicionar
-        public void AdicionarItem(Produto produto, int quantidade)
+        public void AdicionarItem(CirneProduto produto, int quantidade)
         {
             ItemCarrinho item = _itemCarrinho.FirstOrDefault(p => p.Produto.ProdutoId == produto.ProdutoId);
 
@@ -27,7 +27,7 @@ namespace CirneSports.LojaVirtual.Dominio.Entidade
         }
 
         //Remover um item do carrinho
-        public void RemoverItem(Produto produto)
+        public void RemoverItem(CirneProduto produto)
         {
             _itemCarrinho.RemoveAll(l => l.Produto.ProdutoId == produto.ProdutoId);
         }
@@ -53,7 +53,7 @@ namespace CirneSports.LojaVirtual.Dominio.Entidade
 
     public class ItemCarrinho
     {
-        public Produto Produto { get; set; }
+        public CirneProduto Produto { get; set; }
 
         public int Quantidade { get; set; }
     }

@@ -162,13 +162,19 @@
     <Compile Include="Migrations\201705231756137_CriarClienteDB.Designer.cs">
       <DependentUpon>201705231756137_CriarClienteDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705300004119_AddPedido.cs" />
+    <Compile Include="Migrations\201705300004119_AddPedido.Designer.cs">
+      <DependentUpon>201705300004119_AddPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorio\AdministradoresRepositorio.cs" />
     <Compile Include="Repositorio\CategoriaRepositorio.cs" />
+    <Compile Include="Repositorio\CirneProdutosRepositorio.cs" />
     <Compile Include="Repositorio\DetalhesProdutoRepositorio.cs" />
     <Compile Include="Repositorio\EfDbContext.cs" />
     <Compile Include="Repositorio\MenuRepositorio.cs" />
+    <Compile Include="Repositorio\PedidosRepositorio.cs" />
     <Compile Include="Repositorio\ProdutoModeloRepositorio.cs" />
     <Compile Include="Repositorio\ProdutosRepositorio.cs" />
   </ItemGroup>
@@ -179,6 +185,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201705231756137_CriarClienteDB.resx">
       <DependentUpon>201705231756137_CriarClienteDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705300004119_AddPedido.resx">
+      <DependentUpon>201705300004119_AddPedido.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

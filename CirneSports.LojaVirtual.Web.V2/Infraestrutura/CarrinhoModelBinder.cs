@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using CirneSports.LojaVirtual.Dominio.Entidade;
 
-namespace Quiron.LojaVirtual.Web.V2.Infraestrutura
+namespace CirneSports.LojaVirtual.Web.V2.Infraestrutura
 {
 
     // IModelBinder interface define o método: BindModel

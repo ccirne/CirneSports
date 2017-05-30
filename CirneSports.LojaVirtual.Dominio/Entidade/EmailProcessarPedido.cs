@@ -38,16 +38,16 @@ namespace CirneSports.LojaVirtual.Dominio.Entidade
                 foreach (var item in carrinho.ItensCarrinho)
                 {
                     var subtotal = item.Produto.Preco*item.Quantidade;
-                    body.AppendFormat("{0} x {1} (subtotal: {2:c}", item.Quantidade, item.Produto.Nome, subtotal);
+                    body.AppendFormat("{0} x {1} (subtotal: {2:c}", item.Quantidade, item.Produto.ProdutoDescricao, subtotal);
                 }
                 body.AppendFormat("Valor total do pedido: {0:c}",carrinho.ObterValorTotal())
                       .AppendLine("----------------------")
                       .AppendLine("Enviar para:")
-                      //.AppendLine(pedido.NomeCliente)
-                      //.AppendLine(pedido.Email)
-                      //.AppendLine(pedido.Endereco ?? "")
-                      //.AppendLine(pedido.Cidade ?? "")
-                      //.AppendLine(pedido.Complemento ?? "")
+                      .AppendLine(pedido.Cliente.NomeCompleto)
+                      .AppendLine(pedido.Cliente.Email)
+                      .AppendLine(pedido.Cliente.Endereco.Rua + ", " + pedido.Cliente.Endereco.Numero ?? "")
+                      .AppendLine(pedido.Cliente.Endereco.Cidade ?? "")
+                      .AppendLine(pedido.Cliente.Endereco.Complemento ?? "")
                       .AppendLine("----------------------")
                       .AppendFormat("Para presente?: {0}", pedido.EmbrulhaPresente ? "Sim" : "Não");
                        

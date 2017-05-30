@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace CirneSports.LojaVirtual.Dominio.Entidade
 {
@@ -34,6 +35,6 @@ namespace CirneSports.LojaVirtual.Dominio.Entidade
 
         }
 
-        //public virtual ICollection<ProdutoPedido> ProdutosPedido { get; set; }
+        public virtual ICollection<ProdutoPedido> ProdutosPedido { get; set; }
     }
 }
