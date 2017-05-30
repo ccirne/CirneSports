@@ -171,6 +171,7 @@
     <Compile Include="Repositorio\AdministradoresRepositorio.cs" />
     <Compile Include="Repositorio\CategoriaRepositorio.cs" />
     <Compile Include="Repositorio\CirneProdutosRepositorio.cs" />
+    <Compile Include="Repositorio\ClientesRepositorio.cs" />
     <Compile Include="Repositorio\DetalhesProdutoRepositorio.cs" />
     <Compile Include="Repositorio\EfDbContext.cs" />
     <Compile Include="Repositorio\MenuRepositorio.cs" />

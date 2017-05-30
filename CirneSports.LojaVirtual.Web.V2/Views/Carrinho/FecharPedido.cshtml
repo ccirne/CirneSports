@@ -6,35 +6,24 @@
 
 <h2>Fechar o Pedido</h2>
 
-<p>Digite suas informações abaixo.</p>
+
 
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary()
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.ClienteId)
 
     <h3>Enviar para:</h3>
     
     <div class="form-group">
          <label>Nome do cliente:</label>
-         @Html.TextBoxFor(x => x.Cliente.NomeCompleto, new {@class = "form-control"})
-         @Html.ValidationMessageFor(x => x.Cliente.NomeCompleto)
+         @Html.TextBoxFor(x => x.Cliente.NomeCompleto, new {@class = "form-control", disabled = true})
     </div>
 
-    foreach (var property in ViewData.ModelMetadata.Properties)
-    {
-        if (property.PropertyName != "NomeCliente" && property.PropertyName != "EmbrulhaPresente")
-        {
-            <div class="form-group">
-                <label>
-                    @(property.DisplayName ?? property.PropertyName)
-                </label>
+    <h3>Dados para entrega</h3>
 
-                @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
-
-            </div>
-        }
-        
-    }
+    @Html.DisplayFor(m => m.Cliente.Endereco)
 
     <h3>Opções:</h3>
     <div class="checkbox">
@@ -46,33 +35,7 @@
 
      <input class="btn btn-primary" type="submit" valye="Fechar o pedido"/>
 
+    <hr/>
 }
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
 
-<script>
-
-    $('#Cep').change(function (e) {
-
-        e.preventDefault();
-
-        $("#Endereco").val('');
-        $("#Bairro").val('');
-        $("#Cidade").val('');
-        $("#Estado").val('');
-
-        var cep = $('#Cep').val().replace("-", "");
-
-        $.getJSON("http://cep.republicavirtual.com.br/web_cep.php?cep=" + cep + "&formato=json", {}, function(data) {
-            if (data.resultado_txt == 'sucesso - cep completo') {
-                $("#Endereco").val(data.tipo_logradouro + ' ' + data.logradouro);
-                $("#Bairro").val(data.bairro);
-                $("#Cidade").val(data.cidade);
-                $("#Estado").val(data.uf);
-            }
-        });
-
-
-    })
-
-</script>

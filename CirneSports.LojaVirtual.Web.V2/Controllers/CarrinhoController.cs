@@ -1,15 +1,19 @@
-﻿using System.Linq;
+﻿using Microsoft.AspNet.Identity;
+using System.Linq;
 using System.Web.Mvc;
 using CirneSports.LojaVirtual.Dominio.Entidade;
 using CirneSports.LojaVirtual.Dominio.Repositorio;
 using CirneSports.LojaVirtual.Web.V2.Models;
 using System.Configuration;
+using System.Collections.Generic;
 
 namespace CirneSports.LojaVirtual.Web.V2.Controllers
 {
     public class CarrinhoController : Controller
     {
         private CirneProdutosRepositorio _repositorio;
+        private ClientesRepositorio _clienteRepositorio = new ClientesRepositorio();
+        private PedidosRepositorio _pedidosRepositorio = new PedidosRepositorio();
 
         public ViewResult Index(Carrinho carrinho, string returnurl)
         {
@@ -52,16 +56,54 @@ namespace CirneSports.LojaVirtual.Web.V2.Controllers
                 carrinho.RemoverItem(produto);
             }
 
-            return RedirectToAction("Index", new { returnUrl });
+            return RedirectToAction("Index", "Nav");
         }
 
+        [Authorize]
         public ViewResult FecharPedido()
         {
-            return View(new Pedido());
+            Pedido novoPedido = new Pedido();
+            novoPedido.ClienteId = User.Identity.GetUserId();
+            novoPedido.Cliente = _clienteRepositorio.ObterCliente(User.Identity.GetUserId());
+
+            return View(novoPedido);
         }
 
         [HttpPost]
-        public ViewResult FecharPedido(Carrinho carrinho, Pedido pedido)
+        [Authorize]
+        [ValidateAntiForgeryToken]
+        public ActionResult FecharPedido(Carrinho carrinho, Pedido pedido)
+        {
+
+            if (!carrinho.ItensCarrinho.Any())
+            {
+                ModelState.AddModelError("", "Não foi possível concluir  o pedido, o Carrinho está vazio!");
+            }
+
+            if (ModelState.IsValid)
+            {
+                pedido.ProdutosPedido = new List<ProdutoPedido>();
+
+                foreach(var item in carrinho.ItensCarrinho)
+                { 
+                    pedido.ProdutosPedido.Add(new ProdutoPedido()
+                    {
+                        Quantidade = item.Quantidade,
+                        ProdutoId = item.Produto.ProdutoId
+                    });
+                }
+                pedido.Pago = false;
+                pedido = _pedidosRepositorio.SalvarPedido(pedido);
+
+                return RedirectToAction("PedidoConcluido", new { pedidoId = pedido.Id });
+            }
+            else
+            {
+                return View(pedido);
+            }
+        }
+
+        public ViewResult PedidoConcluido(Carrinho carrinho, int pedidoId)
         {
 
             EmailConfiguracoes email = new EmailConfiguracoes
@@ -71,26 +113,12 @@ namespace CirneSports.LojaVirtual.Web.V2.Controllers
 
             EmailPedido emailPedido = new EmailPedido(email);
 
-            if (!carrinho.ItensCarrinho.Any())
-            {
-                ModelState.AddModelError("", "Não foi possível concluir  o pedido, o Carrinho está vazio!");
-            }
+            var pedido = _pedidosRepositorio.ObterPedido(pedidoId);
 
-            if (ModelState.IsValid)
-            {
-                emailPedido.ProcessarPedido(carrinho, pedido);
-                carrinho.LimparCarrinho();
-                return View("PedidoConcluido");
-            }
-            else
-            {
-                return View(pedido);
-            }
-        }
+            emailPedido.ProcessarPedido(carrinho, pedido);
+            carrinho.LimparCarrinho();
 
-        public ViewResult PedidoConcluido()
-        {
-            return View();
+            return View(pedido);
         }
     }
 }
